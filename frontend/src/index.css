@@ -1,0 +1,128 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 210 20% 98%;
+    --foreground: 216 33% 20%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 216 33% 20%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 216 33% 20%;
+
+    --primary: 210 83% 53%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 220 14% 96%;
+    --secondary-foreground: 216 33% 20%;
+
+    --muted: 220 14% 96%;
+    --muted-foreground: 215 16% 56%;
+
+    --accent: 216 33% 20%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 221 83% 53%;
+
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans selection:bg-primary/20;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+@layer components {
+  .glass-panel {
+    @apply relative bg-white/60 backdrop-blur-md border border-white/20 shadow-lg rounded-2xl;
+  }
+  
+  .glass-button {
+    @apply relative overflow-hidden bg-white/20 backdrop-blur-sm border border-white/20 
+           shadow-sm hover:shadow-md transition-all duration-300 ease-in-out 
+           rounded-lg text-foreground font-medium;
+  }
+  
+  .glass-button::before {
+    content: '';
+    @apply absolute inset-0 bg-white/5 transform scale-x-0 origin-left 
+           transition-transform duration-300 ease-out;
+  }
+  
+  .glass-button:hover::before {
+    @apply scale-x-100;
+  }
+  
+  .neo-button {
+    @apply relative bg-secondary text-foreground rounded-lg 
+           shadow-[3px_3px_10px_rgba(0,0,0,0.05),-3px_-3px_10px_rgba(255,255,255,0.7)] 
+           active:shadow-[inset_3px_3px_5px_rgba(0,0,0,0.05),inset_-3px_-3px_5px_rgba(255,255,255,0.7)] 
+           transition-all duration-200 ease-in-out;
+  }
+  
+  .page-transition-enter {
+    @apply opacity-0 transform translate-x-full;
+  }
+  
+  .page-transition-enter-active {
+    @apply opacity-100 transform translate-x-0 transition-all duration-300 ease-in-out;
+  }
+  
+  .page-transition-exit {
+    @apply opacity-100 transform translate-x-0;
+  }
+  
+  .page-transition-exit-active {
+    @apply opacity-0 transform -translate-x-full transition-all duration-300 ease-in-out;
+  }
+  
+  .input-field {
+    @apply w-full px-4 py-3 bg-white/80 backdrop-blur-sm border border-border 
+           rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50
+           transition-all duration-200 ease-in-out;
+  }
+  
+  .btn-primary {
+    @apply bg-primary text-primary-foreground hover:bg-primary/90 px-6 py-3 
+           rounded-lg font-medium transition-all duration-200 ease-in-out 
+           focus:outline-none focus:ring-2 focus:ring-primary/50 focus:ring-offset-2;
+  }
+  
+  .btn-secondary {
+    @apply bg-secondary text-secondary-foreground hover:bg-secondary/80 px-6 py-3 
+           rounded-lg font-medium transition-all duration-200 ease-in-out 
+           focus:outline-none focus:ring-2 focus:ring-secondary/50 focus:ring-offset-2;
+  }
+  
+  .debate-message {
+    @apply max-w-[80%] p-4 mb-3 rounded-2xl;
+  }
+  
+  .debate-message-player1 {
+    @apply bg-primary/10 text-foreground ml-auto;
+  }
+  
+  .debate-message-player2 {
+    @apply bg-secondary text-foreground mr-auto;
+  }
+  
+  .confetti {
+    @apply absolute w-2 h-6 origin-top;
+  }
+}

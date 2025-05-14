@@ -1,0 +1,6 @@
+backend/.env
+backend/_pycache_/
+backend/tmp/
+backend/test.py
+frontend/.env
+.env
