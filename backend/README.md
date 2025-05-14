@@ -134,8 +134,8 @@ A FastAPI-based backend service for a real-time debate platform with AI-powered 
 ```env
 # MinIO
 MINIO_ENDPOINT=localhost:9000
-MINIO_ACCESS_KEY=sayan
-MINIO_SECRET_KEY=admin123
+MINIO_ACCESS_KEY=USER_NAME
+MINIO_SECRET_KEY=KEY_GIVEN_BY_MINIO
 
 # Gemini API
 GEMINI_API_KEY=your_gemini_api_key_here
